@@ -7,6 +7,30 @@
 </head>
 <body>
 
+<h2>for-click-handler</h2>
+<p>This happens to a lot of people new to JS/jQuery. Below, we want to click on A01 and fade B01, A02-->B02 and so on. </p>
+<p>The code to add event listener is: </p>
+
+<pre>
+$(document).ready(function(){
+
+    for(i=0; i<10; i++){
+
+        console.log('adding listener to ', '#a0' + i, ' fade target is ', '#b0' + i);
+        $("#a0" + i).click(function (e) {
+
+            e.preventDefault();
+
+            console.log('#b0' + i + 'is fading') //what is the output if I clicked A01? What about A09?
+            $('#b0' + i).fadeToggle('');
+        });
+    }
+});
+</pre>
+        
+<p>Can it do the right thing? </p>
+<p>Read the code, open the console, and see what the output is. </p>
+
 <a href="#" id="a00">A00</a><br>
 <a href="#" id="a01">A01</a><br>
 <a href="#" id="a02">A02</a><br>
